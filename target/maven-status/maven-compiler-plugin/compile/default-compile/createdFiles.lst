@@ -1,4 +1,5 @@
 org/fastspring/testautomation/Constants.class
+org/fastspring/testautomation/Productpage.class
 org/fastspring/testautomation/testData.class
 org/fastspring/testautomation/Utils.class
 org/fastspring/testautomation/ProductServices.class
