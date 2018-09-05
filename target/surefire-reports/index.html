@@ -59,7 +59,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Suite" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>2 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,7 +102,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="org.fastspring.testautomation.Productpage" class="method navigator-link" hash-for-method="checkout(chrome)">checkout(chrome)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="org.fastspring.testautomation.ProductServices" class="method navigator-link" hash-for-method="getProducts">getProducts</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="org.fastspring.testautomation.ProductServices" class="method navigator-link" hash-for-method="postProducts">postProducts</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -120,15 +125,21 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">org.fastspring.testautomation.Productpage</span>
+              <span class="class-name">org.fastspring.testautomation.ProductServices</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="checkout(chrome)">
-                  </a> <!-- checkout(chrome) -->
-                  <span class="method-name">checkout</span>
-                  <span class="parameters">(chrome)</span>
+                  <a name="getProducts">
+                  </a> <!-- getProducts -->
+                  <span class="method-name">getProducts</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="postProducts">
+                  </a> <!-- postProducts -->
+                  <span class="method-name">postProducts</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -145,8 +156,9 @@
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;test&quot; verbose=&quot;0&quot;&gt;
     &lt;parameter name=&quot;drivername&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;no_of_sub_days&quot; value=&quot;7&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;org.fastspring.testautomation.Productpage&quot;/&gt;
+      &lt;class name=&quot;org.fastspring.testautomation.ProductServices&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -170,6 +182,22 @@
             <span class="header-content">Groups for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">getInfo</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">getProducts</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">insertInfo</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">postProducts</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Suite" class="panel">
@@ -186,16 +214,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'checkout')
-data.setCell(0, 2, 'org.fastspring.testautomation.Productpage')
-data.setCell(0, 3, 63);
+data.setCell(0, 1, 'postProducts')
+data.setCell(0, 2, 'org.fastspring.testautomation.ProductServices')
+data.setCell(0, 3, 2755);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'getProducts')
+data.setCell(1, 2, 'org.fastspring.testautomation.ProductServices')
+data.setCell(1, 3, 540);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 63 ms</span>
+              <span class="suite-total-time">Total running time: 3 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -221,10 +253,14 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">org.fastspring.testautomation.Productpage</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">org.fastspring.testautomation.ProductServices</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">checkout(chrome)</span>
+                <span class="method-name">postProducts</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getProducts</span>
+                <span class="method-start">2757 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

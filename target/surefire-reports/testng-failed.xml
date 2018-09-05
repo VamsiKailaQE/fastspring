@@ -2,13 +2,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="5" name="test(failed)" verbose="0">
-    <parameter name="drivertype" value="chrome"/>
+    <parameter name="drivername" value="chrome"/>
+    <parameter name="no_of_sub_days" value="7"/>
     <classes>
-      <class name="org.fastspring.testautomation.Productpage">
+      <class name="org.fastspring.testautomation.Checkoutflow">
         <methods>
+          <include name="setup"/>
           <include name="checkout"/>
         </methods>
-      </class> <!-- org.fastspring.testautomation.Productpage -->
+      </class> <!-- org.fastspring.testautomation.Checkoutflow -->
     </classes>
   </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
