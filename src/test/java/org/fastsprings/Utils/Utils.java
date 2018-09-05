@@ -1,7 +1,9 @@
 package org.fastsprings.Utils;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -9,6 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,11 +21,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Utils {
 	
 	
 	
-	public static HttpURLConnection getConnection(String url, String methodType){
+	public static HttpURLConnection makeRequest(String url, String methodType){
 
 		HttpURLConnection conn = null;
 		try {
@@ -46,7 +53,7 @@ public class Utils {
 				wr.close();
 			}
 			else if(methodType=="GET") {
-				conn.setRequestMethod("GET");		
+				conn.setRequestMethod("GET");	
 
 				if (conn.getResponseCode() != 200) {
 					throw new RuntimeException("Failed : HTTP error code : "
@@ -76,22 +83,56 @@ public class Utils {
 		return conn;
 		}
 	
+	public static JSONObject getJSONresponse(HttpURLConnection conn) {
+		
+		JSONObject object=null;
+		try {
+		BufferedReader input = new BufferedReader(
+				new InputStreamReader(conn.getInputStream()));
+		BufferedReader in = new BufferedReader(
+		        new InputStreamReader(conn.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = in.readLine()) != null) {
+			response.append(inputLine);
+		}
+		in.close();
+		
+		String resp=response.toString();
+		
+		System.out.println(resp);
+		
+		JSONParser parser=new JSONParser();
+		object=(JSONObject) parser.parse(resp);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return object;
+		
+		
+	}
 	public static WebDriver getDriver(String drivername ) {
 		
 		WebDriver driver = null;
 		
 		try {
 			
-			if(drivername=="chrome") {
-				
-				System.setProperty("webdriver.chrome.driver", "/Applications/Softwares/ChromeDriver/chromedriver");
+			if(drivername.equals("chrome")) {
+				//WebDriverManager.chromedriver().setup();
+				ChromeDriverManager.chromedriver().setup();
+				//System.setProperty("webdriver.chrome.driver", "/Applications/Softwares/ChromeDriver/chromedriver");
 				driver = new ChromeDriver();
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				
+				
 			}
 		
-			else if(drivername=="firefox") {
-				System.setProperty("webdriver.gecko.driver","");
+			else if(drivername.equals("firefox")) {
+				WebDriverManager.firefoxdriver().setup();
+				//System.setProperty("webdriver.gecko.driver","");
 				driver = new FirefoxDriver();
 				
 			}

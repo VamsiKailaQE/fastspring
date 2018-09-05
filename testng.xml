@@ -4,9 +4,10 @@
   <test thread-count="5" name="test">
   
   	<parameter name="drivername" value="chrome"/>
+  	<parameter name="no_of_sub_days" value="7"/>
     <classes>
-      <!--<class name="org.fastspring.testautomation.ProductServices"/>  -->
-      <class name="org.fastspring.testautomation.Productpage"/>
+	  <class name="org.fastspring.testautomation.ProductServices"/>  
+      <!--<class name="org.fastspring.testautomation.Checkoutflow"/> -->
     </classes>
   </test> <!-- Test -->
   

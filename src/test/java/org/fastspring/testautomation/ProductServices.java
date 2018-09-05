@@ -29,18 +29,17 @@ public class ProductServices{
 		try {
 			
 			//Make Post request with payload from testData
-			HttpURLConnection conn=Utils.getConnection(url, "POST");
+			HttpURLConnection conn=Utils.makeRequest(url, "POST");
 			
 			//Assert Response Properties
 			int responseCode = conn.getResponseCode();
 			System.out.println("\nSent 'POST' request to URL : " + url);
+			System.out.println(conn.getResponseMessage());
 			System.out.println("\nResponse Code : " + responseCode);
 			
 			//Read the response contents to get the details of the product posted
-			BufferedReader input = new BufferedReader(
-					new InputStreamReader(conn.getInputStream()));
-			JSONParser parser=new JSONParser();
-			JSONObject object=(JSONObject) parser.parse(input);
+			JSONObject object=Utils.getJSONresponse(conn);
+			
 			System.out.println("\nResponse Object: "+object+"\n");
 			JSONArray allproducts= (JSONArray)object.get("products");
 			System.out.print("Product/Products Inserted: ");
@@ -59,21 +58,32 @@ public class ProductServices{
 	}
 	
 	@Test (groups = { "getInfo" }, enabled=true, priority= 1)
+	
 	public void getProducts(){
 		
 	try{
 		
 		String url=Constants.getUrl();
 		
-		HttpURLConnection conn=Utils.getConnection(""+url+productname, "GET");
-
-		String response=conn.getResponseMessage();
-		//System.out.println(response);
-		BufferedReader input = new BufferedReader(new InputStreamReader(
-			(conn.getInputStream())));
-		JSONParser parser=new JSONParser();
-		JSONObject object=(JSONObject) parser.parse(input);
-		System.out.println("\n"+object);
+		String requrl=""+url+"vamsi090418";
+		
+		HttpURLConnection conn=Utils.makeRequest(requrl, "GET");
+		
+		int responseCode = conn.getResponseCode();
+		System.out.println(responseCode);
+		
+		//Read the response contents to get the details of the product
+		
+		JSONObject object=Utils.getJSONresponse(conn);
+		
+		System.out.println("\nResponse Object: "+object+"\n");
+		
+		
+		//JSONArray listofelements= (JSONArray)object.get("products");
+		
+		
+		
+		
 		
 	}
 

@@ -5,7 +5,7 @@ public class testData {
 	public static String payload="{\n" + 
 			"  \"products\": [\n" + 
 			"    {\n" + 
-			"      \"product\": \"PhotoCollage\",                                                 \n" + 
+			"      \"product\": \"vamsi090418\",                                                 \n" + 
 			"      \"display\": {                                                              \n" + 
 			"        \"en\": \"Photo Collage & Photo Editor\"                                                          \n" + 
 			"      },\n" + 
