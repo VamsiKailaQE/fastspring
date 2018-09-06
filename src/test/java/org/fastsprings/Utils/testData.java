@@ -2,10 +2,12 @@ package org.fastsprings.Utils;
 
 public class testData {
 	
-	public static String payload="{\n" + 
+	public static String getPayload(String productName) {
+	
+	 String payload="{\n" + 
 			"  \"products\": [\n" + 
 			"    {\n" + 
-			"      \"product\": \"vamsi090418\",                                                 \n" + 
+			"      \"product\":"+ productName+",                                                 \n" + 
 			"      \"display\": {                                                              \n" + 
 			"        \"en\": \"Photo Collage & Photo Editor\"                                                          \n" + 
 			"      },\n" + 
@@ -53,8 +55,8 @@ public class testData {
 			"          \"EUR\": 43.88\n" + 
 			"        },\n" + 
 			"        \"quantityDiscounts\": {                                                   \n" + 
-			"          30: {\"USD\": 25, \"EUR\": 15},\n" + 
-			"          10: {\"USD\": 15.00, \"EUR\": 10.00}\n" + 
+			"          30: {\"USD\": 25.00},\n" + 
+			"          10: {\"USD\": 15.00}\n" + 
 			"        },\n" + 
 			"        \"discountReason\": {\n" + 
 			"          \"en\": \"Labor Day\"\n" + 
@@ -64,4 +66,7 @@ public class testData {
 			"    }\n" + 
 			"  ]\n" + 
 			"}";
+	 
+	 return payload;
+}
 }

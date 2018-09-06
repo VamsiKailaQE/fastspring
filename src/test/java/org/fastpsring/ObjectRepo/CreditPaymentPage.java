@@ -14,7 +14,8 @@ public class CreditPaymentPage {
 	
 	By firstname=By.name("contact.firstName");
 	By lastname=By.name("contact.lastName");
-	By email=By.name("contact.email");
+	//By email=By.name("contact.email");
+	By email=By.xpath("//*[@id='app']/div[4]/div/div/form/fieldset/div[2]/div[2]/div[2]/div/div/div/input");
 	By card_number=By.name("card.number");
 	By exp_month=By.name("card.month");
 	By exp_year=By.name("card.year");
@@ -24,11 +25,9 @@ public class CreditPaymentPage {
 	By state_select=By.name("contact.region");
 	By zip_code=By.id("contact-postal");
 	By contact_phone=By.id("contact-phone");
-	By save_button=By.xpath("//*[@id=\"app\"]/div[4]/div/div/form/fieldset/div[3]/button");
+	By save_button=By.xpath("//*[@id=\"app\"]/div[4]/div/div/form/fieldset/div[3]/button/span");	
 	By thank_you_msg=By.xpath("//*[@id=\"content\"]/div/div[1]/h3");
-	
-	
-
+	By download_button=By.xpath("//*[@id=\"PhotoCollage\"]/td[2]/div[3]/div[1]/div/button");
 	public WebElement getFirstname() {
 		
 		return driver.findElement(firstname);
@@ -72,6 +71,9 @@ public class CreditPaymentPage {
 	}
 	public WebElement getthankyoumsg() {
 		return driver.findElement(thank_you_msg);
+	}
+	public WebElement get_download_button() {
+		return driver.findElement(download_button);
 	}
 	
 	

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="test">
+  
+  <test name="test1">
   
   	<parameter name="drivername" value="chrome"/>
-  	<parameter name="no_of_sub_days" value="7"/>
     <classes>
-	  <class name="org.fastspring.testautomation.ProductServices"/>  
-      <!--<class name="org.fastspring.testautomation.Checkoutflow"/> -->
+      <class name="org.fastspring.testautomation.Checkoutflow"/> 
     </classes>
   </test> <!-- Test -->
   
