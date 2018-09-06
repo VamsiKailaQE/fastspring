@@ -2,26 +2,24 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-09-05T04:47:17Z" name="Suite" finished-at="2018-09-05T04:47:20Z" duration-ms="3312">
+  <suite started-at="2018-09-06T22:17:03Z" name="Suite" finished-at="2018-09-06T22:17:16Z" duration-ms="13347">
     <groups>
-      <group name="getInfo">
-        <method signature="ProductServices.getProducts()[pri:1, instance:org.fastspring.testautomation.ProductServices@2a3b5b47]" name="getProducts" class="org.fastspring.testautomation.ProductServices"/>
-      </group> <!-- getInfo -->
-      <group name="insertInfo">
-        <method signature="ProductServices.postProducts()[pri:0, instance:org.fastspring.testautomation.ProductServices@2a3b5b47]" name="postProducts" class="org.fastspring.testautomation.ProductServices"/>
-      </group> <!-- insertInfo -->
     </groups>
-    <test started-at="2018-09-05T04:47:17Z" name="test" finished-at="2018-09-05T04:47:20Z" duration-ms="3312">
-      <class name="org.fastspring.testautomation.ProductServices">
-        <test-method signature="postProducts()[pri:0, instance:org.fastspring.testautomation.ProductServices@2a3b5b47]" started-at="2018-09-05T04:47:17Z" name="postProducts" finished-at="2018-09-05T04:47:19Z" duration-ms="2755" status="PASS">
+    <test started-at="2018-09-06T22:17:03Z" name="test1" finished-at="2018-09-06T22:17:16Z" duration-ms="13347">
+      <class name="org.fastspring.testautomation.Checkoutflow">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.fastspring.testautomation.Checkoutflow@7c7b252e]" started-at="2018-09-06T22:17:03Z" name="setup" finished-at="2018-09-06T22:17:08Z" duration-ms="4544" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- postProducts -->
-        <test-method signature="getProducts()[pri:1, instance:org.fastspring.testautomation.ProductServices@2a3b5b47]" started-at="2018-09-05T04:47:19Z" name="getProducts" finished-at="2018-09-05T04:47:20Z" duration-ms="540" status="PASS">
+        </test-method> <!-- setup -->
+        <test-method signature="checkout()[pri:0, instance:org.fastspring.testautomation.Checkoutflow@7c7b252e]" started-at="2018-09-06T22:17:08Z" name="checkout" finished-at="2018-09-06T22:17:16Z" duration-ms="8790" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getProducts -->
-      </class> <!-- org.fastspring.testautomation.ProductServices -->
-    </test> <!-- test -->
+        </test-method> <!-- checkout -->
+        <test-method signature="postordercheck()[pri:0, instance:org.fastspring.testautomation.Checkoutflow@7c7b252e]" started-at="2018-09-06T22:17:16Z" name="postordercheck" finished-at="2018-09-06T22:17:16Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postordercheck -->
+      </class> <!-- org.fastspring.testautomation.Checkoutflow -->
+    </test> <!-- test1 -->
   </suite> <!-- Suite -->
 </testng-results>

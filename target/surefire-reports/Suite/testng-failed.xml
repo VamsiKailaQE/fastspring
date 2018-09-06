@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
-  <test thread-count="5" name="test(failed)" verbose="0">
+  <test thread-count="5" name="test1(failed)" verbose="0">
     <parameter name="drivername" value="chrome"/>
-    <parameter name="no_of_sub_days" value="7"/>
     <classes>
       <class name="org.fastspring.testautomation.Checkoutflow">
         <methods>
@@ -12,5 +11,5 @@
         </methods>
       </class> <!-- org.fastspring.testautomation.Checkoutflow -->
     </classes>
-  </test> <!-- test(failed) -->
+  </test> <!-- test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -8,9 +8,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
@@ -28,7 +33,7 @@ public class Utils {
 	
 	
 	
-	public static HttpURLConnection makeRequest(String url, String methodType){
+	public static HttpURLConnection makeRequest(String url, String methodType, String req_payload){
 
 		HttpURLConnection conn = null;
 		try {
@@ -41,14 +46,15 @@ public class Utils {
 			conn = (HttpURLConnection) obj.openConnection();
 			String encoded = Base64.getEncoder().encodeToString((username+":"+password).getBytes(StandardCharsets.UTF_8));  //Java 8
 			conn.setRequestProperty("Authorization", "Basic "+encoded);
-			conn.setRequestProperty("Accept", "application/json");
-			conn.setRequestProperty("Content-Type", "application/json");
+			//conn.setRequestProperty("Accept", "application/json");
+			conn.setRequestProperty("Content-Type", "x-www-form-urlencoded");
 			if(methodType=="POST") {
-				String payload=testData.payload;
+				//System.out.println(req_payload);
 				conn.setRequestMethod("POST");
 				conn.setDoOutput(true);
 				DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
-				wr.writeBytes(payload);
+				System.out.println(req_payload);
+				wr.writeBytes(req_payload);
 				wr.flush();
 				wr.close();
 			}
@@ -83,12 +89,11 @@ public class Utils {
 		return conn;
 		}
 	
-	public static JSONObject getJSONresponse(HttpURLConnection conn) {
+	public static String getResponse(HttpURLConnection conn) {
 		
-		JSONObject object=null;
+		String resp=null;
 		try {
-		BufferedReader input = new BufferedReader(
-				new InputStreamReader(conn.getInputStream()));
+	
 		BufferedReader in = new BufferedReader(
 		        new InputStreamReader(conn.getInputStream()));
 		String inputLine;
@@ -99,18 +104,16 @@ public class Utils {
 		}
 		in.close();
 		
-		String resp=response.toString();
+		resp=response.toString();
 		
-		System.out.println(resp);
+		//System.out.println(resp);
 		
-		JSONParser parser=new JSONParser();
-		object=(JSONObject) parser.parse(resp);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		return object;
+		return resp;
 		
 		
 	}
@@ -126,6 +129,7 @@ public class Utils {
 				//System.setProperty("webdriver.chrome.driver", "/Applications/Softwares/ChromeDriver/chromedriver");
 				driver = new ChromeDriver();
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				driver.manage().window().maximize();
 				
 				
 			}
@@ -151,22 +155,29 @@ public class Utils {
 		
 	}
 	
-	public static void ImplicitWait(WebDriver driver, int time) {
-		
+	public static void explicitly_wait(WebDriver driver, WebElement element)  {
 		
 		try {
-			
-				driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
-				
-			}
-		
+		 WebDriverWait wait = new WebDriverWait(driver, 10);
+		 
+		 element = wait.until(ExpectedConditions.visibilityOf(element));
+		}
 		catch(Exception e) {
-			
 			e.printStackTrace();
 		}
+	}
 	
+	public static int getrandomNumber() {
+		
+		Random number = new Random();
+		
+		int num=100000 + number.nextInt(900000);
+
+		return num;
 		
 	}
+	
+	
 
 }
 

@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>testng.xml</span>
+                    <span>web.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -59,7 +59,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Suite" class="navigator-link ">
-                    <span>2 groups</span>
+                    <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,12 +102,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="org.fastspring.testautomation.ProductServices" class="method navigator-link" hash-for-method="getProducts">getProducts</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="org.fastspring.testautomation.Checkoutflow" class="method navigator-link" hash-for-method="checkout">checkout</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="org.fastspring.testautomation.ProductServices" class="method navigator-link" hash-for-method="postProducts">postProducts</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="org.fastspring.testautomation.Checkoutflow" class="method navigator-link" hash-for-method="postordercheck">postordercheck</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -125,21 +125,21 @@
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">org.fastspring.testautomation.ProductServices</span>
+              <span class="class-name">org.fastspring.testautomation.Checkoutflow</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="getProducts">
-                  </a> <!-- getProducts -->
-                  <span class="method-name">getProducts</span>
+                  <a name="checkout">
+                  </a> <!-- checkout -->
+                  <span class="method-name">checkout</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="postProducts">
-                  </a> <!-- postProducts -->
-                  <span class="method-name">postProducts</span>
+                  <a name="postordercheck">
+                  </a> <!-- postordercheck -->
+                  <span class="method-name">postordercheck</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -147,20 +147,19 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/Users/vamsikrishnakaila/Desktop/testautomation/testng.xml</span>
+            <span class="header-content">/Users/vamsikrishnakaila/Desktop/testautomation/web.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;test&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;test1&quot; verbose=&quot;0&quot;&gt;
     &lt;parameter name=&quot;drivername&quot; value=&quot;chrome&quot;/&gt;
-    &lt;parameter name=&quot;no_of_sub_days&quot; value=&quot;7&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;org.fastspring.testautomation.ProductServices&quot;/&gt;
+      &lt;class name=&quot;org.fastspring.testautomation.Checkoutflow&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- test --&gt;
+  &lt;/test&gt; &lt;!-- test1 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -172,7 +171,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">test (1 class)</span>
+                <span class="test-name">test1 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -182,22 +181,6 @@
             <span class="header-content">Groups for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="test-group">
-              <span class="test-group-name">getInfo</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">getProducts</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
-            <div class="test-group">
-              <span class="test-group-name">insertInfo</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">postProducts</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Suite" class="panel">
@@ -216,18 +199,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'postProducts')
-data.setCell(0, 2, 'org.fastspring.testautomation.ProductServices')
-data.setCell(0, 3, 2755);
+data.setCell(0, 1, 'checkout')
+data.setCell(0, 2, 'org.fastspring.testautomation.Checkoutflow')
+data.setCell(0, 3, 8790);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'getProducts')
-data.setCell(1, 2, 'org.fastspring.testautomation.ProductServices')
-data.setCell(1, 3, 540);
+data.setCell(1, 1, 'postordercheck')
+data.setCell(1, 2, 'org.fastspring.testautomation.Checkoutflow')
+data.setCell(1, 3, 0);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 8 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -253,14 +236,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">org.fastspring.testautomation.ProductServices</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">postProducts</span>
+              <div class="chronological-class-name">org.fastspring.testautomation.Checkoutflow</div> <!-- chronological-class-name -->
+              <div class="configuration-test before">
+                <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <span class="method-name">checkout</span>
+                <span class="method-start">4555 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">getProducts</span>
-                <span class="method-start">2757 ms</span>
+                <span class="method-name">postordercheck</span>
+                <span class="method-start">13346 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

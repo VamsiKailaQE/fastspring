@@ -21,7 +21,7 @@
                 <configuration>
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${testng}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -67,6 +67,7 @@
     <artifactId>webdrivermanager</artifactId>
     <version>3.0.0</version>
 </dependency>
+
 
 
   </dependencies>
